@@ -1,0 +1,47 @@
+name: ai_buddy_kids
+description: "Çocuklar için güvenli, eğitici yapay zeka arkadaş uygulaması."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Ses
+  flutter_tts: ^4.0.2          # Text-to-Speech
+  speech_to_text: ^7.0.0       # Speech-to-Text (Türkçe destekli)
+
+  # Kamera / ML
+  camera: ^0.11.0+2
+  google_mlkit_face_detection: ^0.11.0
+  google_mlkit_pose_detection: ^0.12.0
+  permission_handler: ^11.3.1     # kamera/mikrofon izinleri (bkz. ANDROID_PERMISSIONS.md)
+  tflite_flutter: ^0.11.0         # kişi tanıma (yüz embedding modeli)
+  image: ^4.2.0                   # kamera karesini kırpma/yeniden boyutlandırma
+  http: ^1.2.2                    # AI sohbet motoru API çağrıları
+
+  # Veritabanı / depolama
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  shared_preferences: ^2.3.2
+
+  # State management
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/characters/
+    - assets/animations/
+    - assets/sounds/
+    - assets/models/
