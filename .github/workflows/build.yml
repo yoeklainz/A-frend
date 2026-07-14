@@ -1,9 +1,14 @@
 name: APK Derle
 
+# Bu dosya, GitHub'a her kod gönderdiğinde (push) GitHub'ın kendi
+# ücretsiz sunucusunda otomatik olarak bir APK derler. Bilgisayarın
+# olmasa bile, tarayıcıdan GitHub'a dosya yükleyip bu işlemi
+# tetikleyebilirsin. Derlenen APK "Actions" sekmesinden indirilir.
+
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: {}
+  workflow_dispatch: {} # "Actions" sekmesinden elle de tetiklenebilir
 
 jobs:
   build:
