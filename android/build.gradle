@@ -1,3 +1,4 @@
+cat << 'EOF'
 buildscript {
     ext.kotlin_version = '1.9.24'
     repositories {
@@ -17,6 +18,16 @@ allprojects {
     }
 }
 
+// Bazı eski Flutter eklentileri (ör. speech_to_text) kendi build.gradle
+// dosyalarında bu değerleri rootProject.ext üzerinden okumaya çalışır.
+// Yeni Flutter şablonunda bu artık otomatik tanımlanmadığı için elle
+// ekliyoruz - aksi halde "compileSdkVersion is not specified" hatası alınır.
+ext {
+    compileSdkVersion = 34
+    minSdkVersion = 23
+    targetSdkVersion = 34
+}
+
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
@@ -28,3 +39,4 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+EOF
